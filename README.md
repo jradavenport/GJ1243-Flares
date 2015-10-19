@@ -1,7 +1,13 @@
 # GJ1243-Flares
 This is the full catalog of 6107 flare events from 11 months of short cadence Kepler data from [Davenport et al. (2014)](http://arxiv.org/abs/1411.3723) - the largest uniform sample of flares on a single star to date.
 
+A conference proceeding from IAUS 320 (2015) is also available, which describes additional avenues of research with this unique dataset.
 
+Possible uses for this dataset include:
+
+- Studies of complex flare morphologies and rates
+- Comparison to solar flare models
+- Training set for flare-detection algorithms
 
 
 ## Catalog Info
