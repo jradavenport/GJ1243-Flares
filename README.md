@@ -33,6 +33,25 @@ The repository contains both the [catalog of flares](data/gj1243_master_flares.t
 ```
 
 
+## The flare sample
+To recreate the flare sample used to generate the median flare template (885 events), try the following in IDL:
+
+    readcol, 'gj1243_master_flares.tbl', fstart, fstop, tstart, tstop, tpeak, $
+              trise, tdecay, fpeak, ed, edrise, eddecay, cplx_flg, ppl1, ppl2
+    
+    dur = tstop - tstart
+    remove, where(dur*24.*60. lt 20 or $ ; short flares
+                  dur*24.*60. gt 75 or $ ; too long flares
+                  cplx_flg gt 1.5 or $   ; complex flares
+                  ppl1 lt 4 or $         ; uncertain flares
+                  real(ed) le 0 or $     ; bad ED fit 
+                  real(ed) gt 100),$     ; too high ED (tend to be cplx)
+            dur, tstart, tstop, cplx_flg, ed
+
+    print, '# flares in template generating sample:', n_elements(dur)
+
+
+
 ### Citation
 If you use this dataset, please cite our published paper: [Davenport et al. (2014)](http://arxiv.org/abs/1411.3723)
 
